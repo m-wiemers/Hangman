@@ -1,12 +1,12 @@
-import "./styles.css";
-import styled from "styled-components";
-import { useCallback, useEffect, useState } from "react";
-import Hangman from "./components/Hangman"
-import Key from "./components/Key";
-import WordLine from "./components/WordLine";
-import KeyBoardKeys from "./helpers/keyboardkeys";
-import ValidateSpecialLetters from "./helpers/validespecialletters";
-import getRandomWord from "./helpers/getRandomWord";
+import './styles.css';
+import styled from 'styled-components';
+import { useCallback, useEffect, useState } from 'react';
+import Hangman from '../components/Hangman';
+import Key from '../components/Key';
+import WordLine from '../components/WordLine';
+import KeyBoardKeys from '../helpers/keyboardkeys';
+import ValidateSpecialLetters from '../helpers/validespecialletters';
+import getRandomWord from '../helpers/getRandomWord';
 
 const KeyboardLine = styled.div``;
 
@@ -33,10 +33,10 @@ const ResetButton = styled.button`
 `;
 
 export default function App() {
-  const [value, setValue] = useState<string>("");
+  const [value, setValue] = useState<string>('');
   const [trys, setTrys] = useState<number>(10);
   const [finalWord, setFinalWord] = useState<string[]>([]);
-  const [message, setMessage] = useState<string>("");
+  const [message, setMessage] = useState<string>('');
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [word, setWord] = useState<string>();
   const [wordAsArray, setWordAsArray] = useState<string[]>([]);
@@ -63,7 +63,7 @@ export default function App() {
 
   const handleKeyDown = useCallback(
     (event) => {
-      let key = event.key;
+      const key = event.key;
 
       if (finalWord.includes(key.toUpperCase())) {
         return;
@@ -72,12 +72,12 @@ export default function App() {
         setTrys(trys - 1);
       }
       if (
-        (key.match("[A-Za-z]") && event.code.includes("Key")) ||
+        (key.match('[A-Za-z]') && event.code.includes('Key')) ||
         ValidateSpecialLetters(key)
       ) {
         setValue(key.toUpperCase());
       } else {
-        setValue("");
+        setValue('');
       }
     },
     [trys, finalWord, word]
@@ -86,9 +86,9 @@ export default function App() {
   const reset = () => {
     setTrys(10);
     words();
-    setMessage("");
+    setMessage('');
     setFinalWord([]);
-    setValue("");
+    setValue('');
     setGameOver(false);
   };
 
@@ -97,14 +97,14 @@ export default function App() {
       return;
     }
     if (wordAsArray.every((l) => finalWord.includes(l))) {
-      setMessage("Du hast gewonnen!");
+      setMessage('Du hast gewonnen!');
     }
   }, [finalWord, wordAsArray]);
 
   useEffect(() => {
     if (trys === 0) {
       setGameOver(true);
-      setMessage("Du hast verloren");
+      setMessage('Du hast verloren');
     }
   }, [trys]);
 
@@ -114,11 +114,11 @@ export default function App() {
 
   useEffect(() => {
     if (window) {
-      window.addEventListener("keydown", handleKeyDown);
+      window.addEventListener('keydown', handleKeyDown);
     }
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [handleKeyDown]);
 
@@ -143,14 +143,14 @@ export default function App() {
         </Message>
       )}
       <h1>Hangman</h1>
-      <div style={{ height: "min-content" }}>
+      <div style={{ height: 'min-content' }}>
         <Hangman visibleIndex={trys} dead={gameOver} />
       </div>
       <KeyboardLine>{KeyBoardLine(1)}</KeyboardLine>
       <KeyboardLine>{KeyBoardLine(2)}</KeyboardLine>
       <KeyboardLine>{KeyBoardLine(3)}</KeyboardLine>
 
-      <WordLine winWord={word} finalWord={finalWord} />
+      <WordLine winWord={word ? word : 'Kompromiss'} finalWord={finalWord} />
       <p>Du hast noch {trys} Versuche</p>
     </div>
   );
