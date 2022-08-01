@@ -1,12 +1,12 @@
 import './styles.css';
 import styled from 'styled-components';
 import { useCallback, useEffect, useState } from 'react';
-import Hangman from '../components/Hangman';
-import Key from '../components/Key';
-import WordLine from '../components/WordLine';
-import KeyBoardKeys from '../helpers/keyboardkeys';
-import ValidateSpecialLetters from '../helpers/validespecialletters';
-import getRandomWord from '../helpers/getRandomWord';
+import Hangman from './components/HangMan';
+import Key from './components/Key';
+import WordLine from './components/WordLine';
+import KeyBoardKeys from './helpers/keyboardkeys';
+import ValidateSpecialLetters from './helpers/validespecialletters';
+import getRandomWord from './helpers/getRandomWord';
 
 const KeyboardLine = styled.div``;
 

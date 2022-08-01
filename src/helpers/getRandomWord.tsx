@@ -1,4 +1,4 @@
-import wordlist from "../words/wordlist";
+import wordlist from '../words/wordlist';
 
 const getRandomWord = () => {
   const randomNumber = Math.floor(Math.random() * wordlist.length);
