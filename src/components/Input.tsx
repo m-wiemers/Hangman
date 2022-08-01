@@ -12,7 +12,7 @@ const StyledInput = styled.input`
   text-align: center;
 `;
 
-const Input = ({ onChange, value }: Props) => {
+const Input = ({ onChange, value }: Props): JSX.Element => {
   const isValide = (str: string) => {
     if (str.match('[A-Za-z]+')) {
       const Key = str;

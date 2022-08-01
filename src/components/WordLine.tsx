@@ -33,7 +33,7 @@ const StyledLine = styled.div`
   height: 60px;
 `;
 
-const WordLine = ({ winWord, finalWord }: Props) => {
+const WordLine = ({ winWord, finalWord }: Props): JSX.Element => {
   const [word, setWord] = useState<string[]>([]);
 
   useEffect(() => {

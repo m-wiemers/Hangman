@@ -58,7 +58,7 @@ const StandLeg = styled(StyledLine)`
   top: 168px;
 `;
 
-const Hangman = ({ visibleIndex, dead }: Props) => {
+const Hangman = ({ visibleIndex, dead }: Props): JSX.Element => {
   return (
     <OverWrapper>
       <Wrapper>

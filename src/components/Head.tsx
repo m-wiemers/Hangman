@@ -59,7 +59,7 @@ const DeadEye = styled.p`
   margin: 0;
 `;
 
-const Head = ({ visible, dead }: Props) => {
+const Head = ({ visible, dead }: Props): JSX.Element => {
   return (
     <Wrapper visible={visible}>
       <StyledCircle>

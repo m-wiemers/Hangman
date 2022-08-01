@@ -18,7 +18,7 @@ const StyledKey = styled.button`
   margin: 2px;
 `;
 
-const Key = ({ value, onClick, disabled }: Props) => {
+const Key = ({ value, onClick, disabled }: Props): JSX.Element => {
   return (
     <StyledKey disabled={disabled} onClick={onClick}>
       {value}

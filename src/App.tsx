@@ -104,7 +104,7 @@ export default function App() {
   useEffect(() => {
     if (trys === 0) {
       setGameOver(true);
-      setMessage('Du hast verloren');
+      setMessage(`Du hast verloren! Das Wort war: ${word}`);
     }
   }, [trys]);
 
