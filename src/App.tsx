@@ -22,7 +22,7 @@ const Message = styled.div`
   background-color: white;
   height: 90vh;
   width: 90%;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
   align-items: center;
   justify-content: center;
@@ -35,6 +35,7 @@ const Message = styled.div`
 
   @media only screen and (min-width: 768px) {
     opacity: 0.9;
+    font-size: 30px;
   }
 `;
 
