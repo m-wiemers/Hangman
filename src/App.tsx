@@ -10,17 +10,33 @@ import getRandomWord from './helpers/getRandomWord';
 
 const KeyboardLine = styled.div``;
 
+const KeyBoard = styled.div`
+  width: 100%;
+`;
+
 const Message = styled.div`
   position: absolute;
+  z-index: 10;
   display: flex;
   flex-direction: column;
-  background-color: gray;
-  height: 100vh;
+  background-color: white;
+  height: 90vh;
   width: 90%;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
   align-items: center;
   justify-content: center;
+  row-gap: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+  @media only screen and (min-width: 768px) {
+    opacity: 0.9;
+    font-size: 30px;
+  }
 `;
 
 const ResetButton = styled.button`
@@ -32,13 +48,13 @@ const ResetButton = styled.button`
   padding: 0.5rem 1rem;
 `;
 
-export default function App() {
+export default function App(): JSX.Element {
   const [value, setValue] = useState<string>('');
   const [trys, setTrys] = useState<number>(10);
   const [finalWord, setFinalWord] = useState<string[]>([]);
   const [message, setMessage] = useState<string>('');
   const [gameOver, setGameOver] = useState<boolean>(false);
-  const [word, setWord] = useState<string>();
+  const [word, setWord] = useState<string>('Aktiengesellschaft');
   const [wordAsArray, setWordAsArray] = useState<string[]>([]);
 
   const words = () => {
@@ -146,9 +162,11 @@ export default function App() {
       <div style={{ height: 'min-content' }}>
         <Hangman visibleIndex={trys} dead={gameOver} />
       </div>
-      <KeyboardLine>{KeyBoardLine(1)}</KeyboardLine>
-      <KeyboardLine>{KeyBoardLine(2)}</KeyboardLine>
-      <KeyboardLine>{KeyBoardLine(3)}</KeyboardLine>
+      <KeyBoard>
+        <KeyboardLine>{KeyBoardLine(1)}</KeyboardLine>
+        <KeyboardLine>{KeyBoardLine(2)}</KeyboardLine>
+        <KeyboardLine>{KeyBoardLine(3)}</KeyboardLine>
+      </KeyBoard>
 
       <WordLine winWord={word ? word : 'Kompromiss'} finalWord={finalWord} />
       <p>Du hast noch {trys} Versuche</p>
