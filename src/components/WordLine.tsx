@@ -11,8 +11,8 @@ type StyleProps = {
 };
 
 const StyledLetter = styled.p`
-  font-size: 40px;
-  width: 40px;
+  font-size: 12px;
+  width: 12px;
   margin-bottom: 5px;
   margin-top: 0;
   color: ${({ visible }: StyleProps) => (visible ? 'black' : 'transparent')};
@@ -22,14 +22,22 @@ const StyledLetter = styled.p`
     background: transparent;
     visibility: hidden;
   }
+
+  @media only screen and (min-width: 500px) {
+    font-size: 20px;
+    width: 20px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 30px;
+    width: 30px;
+  }
 `;
 
 const StyledLine = styled.div`
   display: flex;
-  width: 100%;
   justify-content: center;
   align-items: flex-end;
-  column-gap: 10px;
+  column-gap: 5px;
   height: 60px;
 `;
 
