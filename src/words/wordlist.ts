@@ -19,6 +19,17 @@ const WordList: string[] = [
   'Feedback',
   'Gitarrenspieler',
   'Schlagzeug',
+  'Kaffeetasse',
+  'Kaffeebecher',
+  'Wellenbrecher',
+  'Rockkonzert',
+  'Videokonferenz',
+  'Blumenbeet',
+  'Sticker',
+  'Aufkleber',
+  'Plastikgehäuse',
+  'Hollywood',
+  'Weltreise',
 ];
 
 export default WordList;
